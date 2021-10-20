@@ -6,6 +6,17 @@
             <field name="model">central.customer</field>
             <field name="arch" type="xml">
                 <form>
+                      <header>
+                         <button id = "button_confirm" name = "action_confirm" string = "Confirm" class="btn_primary"
+                                 type = "object" />
+						 <button id = "button_done" name = "action_done" string = "Mask As Done" class="btn_primary"
+                                 type = "object" />
+                         <button id = "button_draft" name = "action_draft" string = "Set to Draft" class="btn_primary"
+                                 type = "object" />
+                         <button id = "button_cancle" name = "action_cancel" string = "Cancel" 
+                                 type = "object" />
+                         <field name = "state" widget = "statusbar" />
+                      </header>
                     <sheet>
                         <div class="oe_title">
                             <label for="name" string="Customer Name" class="oe_edit_only"/>
@@ -28,7 +39,7 @@
                             <group>
                                 <field name="dob"/>
                                 <field name="gender"/>
-                            </group>
+                            </group>                            
                         </group>
                         <notebook>
                             <page name="general_information" string="General Information">
@@ -45,9 +56,14 @@
 										<field name="image" string="Customer's Image" widget="image"/>
 									</group>
 								</group>
-							</page>
+							</page>							
 						</notebook>
                     </sheet>
+                    <div class="oe_chatter">
+						<field name = "message_follower_ids"/>
+						<field name = "activity_ids"/>
+						<field name = "message_ids"/>
+					</div>
                 </form>
             </field>
         </record>
@@ -66,10 +82,31 @@
                     <field name="dob"/>
                     <field name="gender"/>
                     <field name="company_id"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
 
+	<record id="customer_search" model="ir.ui.view">
+  		<field name="name">central.customer.search</field>
+  		<field name="model">central.customer</field>
+  		<field name="arch" type="xml">
+    	  <search string="Customers">
+      			<field name="name"/>
+      			<field name="last_name"/>
+				<field name="age"/>
+				<separator/>
+				<filter string="Male" domain="[('gender', '=', 'm')]" name="Male"/>
+			    <filter string="Female" domain="[('gender', '=', 'f')]" name="Female"/>
+				<filter string="Others" domain="[('gender', '=', 'o')]" name="Other"/>
+				<group expand="1" string="Group By">
+        			<filter string="Company" name="company_id" context="{'group_by': 'company_id'}"/>
+        			<filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+      			</group>
+    	   </search>
+  		</field>
+	</record>
+	
         <record id="action_customer" model="ir.actions.act_window">
             <field name="name">Customers</field>
             <field name="type">ir.actions.act_window</field>
@@ -79,7 +116,6 @@
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('customer_tree_view')}),
                 (0, 0, {'view_mode': 'form', 'view_id': ref('customer_form_view')})]"/>
         </record>
-
         <menuitem id="center_root"
             name="My Center"
             sequence="10"
