@@ -14,6 +14,7 @@
         'security/ir.model.access.csv',
         'views/customer.xml',
         'views/sale.xml',
+        'views/teacher.xml',
         ],
     'demo': [],
     'qweb': [],
