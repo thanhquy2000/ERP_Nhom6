@@ -23,9 +23,8 @@
 
 <!-- hide label of standard_price field -->
             <xpath expr="//label[@for='standard_price']" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="invisible">1</attribute> 
             </xpath>
-
 <!-- hide company_id field -->
 			<xpath expr="//field[@name='company_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -50,7 +49,6 @@
             <xpath expr="//label[@for='purchase_ok']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-
           </field>
       </record>
     </data>
