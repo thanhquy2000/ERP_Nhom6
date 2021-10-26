@@ -9,11 +9,16 @@
     'category': 'Productivity',
     'website': 'https://www.group6.info',
     'license': 'LGPL-3',
-    'depends': ['sale'],
+    'depends': ['sale',
+                'mail',
+                'product'
+                ],
     'data': [
         'security/ir.model.access.csv',
         'views/customer.xml',
-        'views/sale.xml'
+        'views/sale.xml',
+        'views/teacher.xml',
+        'views/product.xml',
     ],
     'demo': [],
     'qweb': [],

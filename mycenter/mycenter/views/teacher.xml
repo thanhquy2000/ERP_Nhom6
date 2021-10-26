@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="customer_form_view" model="ir.ui.view">
-            <field name="name">customer.form.view</field>
-            <field name="model">central.customer</field>
+        <record id="teacher_form_view" model="ir.ui.view">
+            <field name="name">teacher.form.view</field>
+            <field name="model">central.teacher</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <div class="oe_title">
-                            <label for="name" string="Customer Name" class="oe_edit_only"/>
+                            <label for="name" string="Teacher Name" class="oe_edit_only"/>
                             <h1><table>
                                     <tr>
                                         <td style="padding-right:10px;"><field name="name" required="1" placeholder="First Name" /></td>
@@ -16,13 +16,10 @@
                                         <td style="padding-right:10px;"><field name="last_name" placeholder="Last Name" /></td>
                                     </tr>
                                 </table></h1>
-                            <label for="company_id"/>
-                            <h3><field name="company_id"/></h3>
                         </div>
                         <group name="images">
                             <group>
                                 <field name="age"/>
-                                <field name="id_card"/>
                                 <field name="phone_number"/>
                             </group>
                             <group>
@@ -42,39 +39,42 @@
 							<page name="additional_information" string="Additional Information">
 								<group>
 									<group string="Images">
-										<field name="image" string="Customer's Image" widget="image"/>
+										<field name="image" string="Teacher's Image" widget="image"/>
 									</group>
 								</group>
 							</page>
 						</notebook>
                     </sheet>
+                    <div class="oe_chatter">
+						<field name = "message_follower_ids"/>
+						<field name = "activity_ids"/>
+						<field name = "message_ids"/>
+					</div>
                 </form>
             </field>
         </record>
 
-        <record id="customer_tree_view" model="ir.ui.view">
-            <field name="name">customer.tree.view</field>
-            <field name="model">central.customer</field>
+        <record id="teacher_tree_view" model="ir.ui.view">
+            <field name="name">teacher.tree.view</field>
+            <field name="model">central.teacher</field>
             <field name="arch" type="xml">
-                <tree string="Customers" default_order="create_date desc">
+                <tree string="Teachers" default_order="create_date desc">
                     <field name="name"/>
                     <field name="middle_name"/>
                     <field name="last_name"/>
                     <field name="age"/>
-                    <field name="id_card"/>
                     <field name="phone_number"/>
                     <field name="dob"/>
                     <field name="gender"/>
-                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
 
-	<record id="customer_search" model="ir.ui.view">
-  		<field name="name">central.customer.search</field>
-  		<field name="model">central.customer</field>
+	<record id="teacher_search" model="ir.ui.view">
+  		<field name="name">central.teacher.search</field>
+  		<field name="model">central.teacher</field>
   		<field name="arch" type="xml">
-    	  <search string="Customers">
+    	  <search string="Teachers">
       			<field name="name"/>
       			<field name="last_name"/>
 				<field name="age"/>
@@ -83,37 +83,36 @@
 			    <filter string="Female" domain="[('gender', '=', 'f')]" name="Female"/>
 				<filter string="Others" domain="[('gender', '=', 'o')]" name="Other"/>
 				<group expand="1" string="Group By">
-        			<filter string="Company" name="company_id" context="{'group_by': 'company_id'}"/>
         			<filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
       			</group>
     	   </search>
   		</field>
 	</record>
 
-        <record id="action_customer" model="ir.actions.act_window">
-            <field name="name">Customers</field>
+        <record id="action_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">central.customer</field>
+            <field name="res_model">central.teacher</field>
             <!-- <field name="view_type">form</field> --> <!-- Odoo 14 has removed this field -->
             <field name="view_ids" eval="[(5, 0, 0),
-                (0, 0, {'view_mode': 'tree', 'view_id': ref('customer_tree_view')}),
-                (0, 0, {'view_mode': 'form', 'view_id': ref('customer_form_view')})]"/>
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('teacher_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('teacher_form_view')})]"/>
         </record>
         <menuitem id="center_root"
             name="My Center"
             sequence="10"
             groups="base.group_user"/>
 
-        <menuitem id="menu_customer_root"
-            name="Customers"
+        <menuitem id="menu_teacher_root"
+            name="Teachers"
             sequence="10"
             parent="center_root"/>
 
-        <menuitem id="menu_customer"
-            name="Customers"
-            action="action_customer"
+        <menuitem id="menu_teacher"
+            name="Teachers"
+            action="action_teacher"
             sequence="10"
-            parent="menu_customer_root"/>
+            parent="menu_teacher_root"/>
 
     </data>
 </odoo>
