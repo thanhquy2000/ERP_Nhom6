@@ -23,7 +23,32 @@
 
 <!-- hide label of standard_price field -->
             <xpath expr="//label[@for='standard_price']" position="attributes">
-                <attribute name="invisible">1</attribute> 
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+<!-- hide company_id field -->
+			<xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+
+<!-- hide sale_ok field -->
+			<xpath expr="//field[@name='sale_ok']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+
+<!-- hide label of sale_ok field -->
+            <xpath expr="//label[@for='sale_ok']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+<!-- hide purchase_ok field -->
+			<xpath expr="//field[@name='purchase_ok']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+
+<!-- hide label of purchase_ok field -->
+            <xpath expr="//label[@for='purchase_ok']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
 
           </field>
