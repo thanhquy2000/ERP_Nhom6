@@ -28,7 +28,7 @@
                             <group>
                                 <field name="dob"/>
                                 <field name="gender"/>
-                            </group>                            
+                            </group>
                         </group>
                         <notebook>
                             <page name="general_information" string="General Information">
@@ -45,14 +45,9 @@
 										<field name="image" string="Customer's Image" widget="image"/>
 									</group>
 								</group>
-							</page>							
+							</page>
 						</notebook>
                     </sheet>
-                    <div class="oe_chatter">
-						<field name = "message_follower_ids"/>
-						<field name = "activity_ids"/>
-						<field name = "message_ids"/>
-					</div>
                 </form>
             </field>
         </record>
@@ -94,7 +89,7 @@
     	   </search>
   		</field>
 	</record>
-	
+
         <record id="action_customer" model="ir.actions.act_window">
             <field name="name">Customers</field>
             <field name="type">ir.actions.act_window</field>
