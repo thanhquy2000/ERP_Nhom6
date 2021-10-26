@@ -25,7 +25,7 @@
                             <group>
                                 <field name="dob"/>
                                 <field name="gender"/>
-                            </group>                            
+                            </group>
                         </group>
                         <notebook>
                             <page name="general_information" string="General Information">
@@ -42,7 +42,7 @@
 										<field name="image" string="Teacher's Image" widget="image"/>
 									</group>
 								</group>
-							</page>							
+							</page>
 						</notebook>
                     </sheet>
                     <div class="oe_chatter">
