@@ -9,9 +9,11 @@
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
                     <field name="PhoneNumber"/>
-                    <field name="dob"/>
-                    <field name="id_card"/>
                 </field>
+				<header>
+                     <button id = "button_disable" name = "action_disable" string = "Disable" class="btn_primary"
+                          type = "object" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','sale']), ('id', '=', False)]}"/>
+                </header>
             </field>
         </record>
 
