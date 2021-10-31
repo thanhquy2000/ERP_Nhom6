@@ -10,4 +10,3 @@ class SaleExam(models.Model):
 
     def action_disable(self):
         self.state = 'disable'
-
