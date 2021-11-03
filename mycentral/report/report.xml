@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <report
+        id="report_customer_certification"
+        string="Certification"
+        model="mark"
+        report_type="qweb-pdf"
+        name="my_central.report_customer"
+        file="my_central.report_customer"/>
+
+</odoo>
+			

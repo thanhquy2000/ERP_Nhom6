@@ -7,14 +7,8 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <field name="partner_id" position="after">
-                    <field name="PhoneNumber"/>
+				<field name="partner_id" position="after">
                 </field>
-<!-- add state disable-->
-				<header>
-                     <button id = "button_disable" name = "action_disable" string = "Disable" class="btn_primary"
-                          type = "object" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','sale']), ('id', '=', False)]}"/>
-                </header>
             </field>
         </record>
 

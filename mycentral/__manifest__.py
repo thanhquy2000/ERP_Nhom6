@@ -9,14 +9,21 @@
     'version': '1.0',
     'depends': [
         'sale',
-        'product'
+        'product',
+        'hr',
+        'base', 'mail'
                 ],
     'data': [
+        'security/ir.model.access.csv',
+        'views/mark.xml',
         'views/product.xml',
-        'views/sale.xml'
+        'views/sale.xml',
+        'views/hr.xml',
+        'views/customer.xml',
+        'report/report.xml',
         ],
     'demo': [],
-    'qweb': [],
+    'qweb': ['static/src/xml/customer.xml'],
     'installable': True,
     'application': True,
     'auto_install': False,
