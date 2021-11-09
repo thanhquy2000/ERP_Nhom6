@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+       <record id="mark_kanban_view" model="ir.ui.view">
+            <field name="name">mark.kanban.view</field>
+            <field name="model">mark</field>
+            <field name="arch" type="xml">
+                <kanban string="Mark" default_order="create_date desc">
+                    <field name="name"/>
+                    <field name="exam_name"/>
+                    <field name="age"/>
+                    <field name="mark_reading"/>
+                    <field name="mark_listening"/>
+                    <field name="mark_writing"/>
+                    <field name="mark_speaking"/>
+                    <field name="total_score"/>
+					<field name="image"/>
+
+					<templates>
+						<t t-name ="kanban-box">
+							<div t-attf-class = "oe_kanban_global_click">
+								<div class = "oe_kanban_details">
+									<ul>
+										<li>
+											Name: <field name="name"/>
+										</li>
+										<li>
+											Exam name: <field name="exam_name"/>
+										</li>
+										<li>
+											Mark: <field name="total_score"/>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</t>
+					</templates>
+                </kanban>
+            </field>
+        </record>
         <record id="mark_form_view" model="ir.ui.view">
             <field name="name">mark.form.view</field>
             <field name="model">mark</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-						<field name="image" widget="image" class="oe_avatar"
-							options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+						<field name="image" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
                             <h1><table>
                                     <tr>
@@ -18,9 +55,13 @@
                         </div>
                             <group>
                                 <field name="exam_name"/>
+                                <field name="exam_board"/>
+                    			<field name="age"/>
+
+
                             </group>
                             <group class="oe_subtotal_footer oe_right" colspan="2" name="total_score">
-                                 <field name="mark_reading" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                 <field name="mark_reading" widget="monetary" options="{'currency_field': 'currency_id'}" />
                                  <field name="mark_listening" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                                  <field name="mark_writing" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                                  <field name="mark_speaking" widget="monetary" options="{'currency_field': 'currency_id'}"/>
@@ -28,7 +69,7 @@
                                       <label for="total_score"/>
                                     </div>
                                   <field name="total_score" nolabel="1" class="oe_subtotal_footer_separator"
-									widget="monetary" sum="Total Score included options" options="{'currency_field': 'currency_id'}"/>
+									widget="monetary" options="{'currency_field': 'currency_id'}"/>
                              </group>
                              <div class="oe_clear"/>
                     </sheet>
@@ -49,11 +90,14 @@
                 <tree string="Mark" default_order="create_date desc">
                     <field name="name"/>
                     <field name="exam_name"/>
+                    <field name="exam_board"/>
                     <field name="mark_reading"/>
                     <field name="mark_listening"/>
                     <field name="mark_writing"/>
                     <field name="mark_speaking"/>
                     <field name="total_score"/>
+                    <field name="image"/>
+
                 </tree>
             </field>
         </record>
@@ -62,6 +106,7 @@
             <field name="name">Mark</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">mark</field>
+			<field name = "view_mode">kanban</field>
             <!-- <field name="view_type">form</field> --> <!-- Odoo 14 has removed this field -->
             <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('mark_tree_view')}),
