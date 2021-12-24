@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="central_root" name="My Central" sequence="10" groups="base.group_user"/>
+        <menuitem id="central_customer" name="Customers" parent="central_root" action="action_customer" sequence="10"/>
+        <menuitem id="central_teacher" name="Teachers" parent="central_root" action="action_teacher" sequence="20"/>
+        <menuitem id="central_exam" name="Exams" parent="central_root" action="action_exam" sequence="10"/>
+        <menuitem id="central_register" name="Register" parent="central_root" action="action_register" sequence="30"/>
+        <menuitem id="central_mark" name="Mark" parent="central_root" action="action_mark" sequence="10"/>
+    </data>
+</odoo>

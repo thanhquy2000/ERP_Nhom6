@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+		<record id="view_partner" model="ir.ui.view">
+        	<field name="name">view_partner</field>
+        	<field name="model">res.partner</field>
+        	<field name="inherit_id" ref="base.view_partner_form"/>
+        	<field name="arch" type="xml">
+				<field name="vat" position="after">
+                    <field name="id_card"/>
+				</field>
+                <field name="id_card" position="after">
+                    <field name="DateOfIssue"/>
+                </field>
+                 <field name="DateOfIssue" position="after">
+                    <field name="PlaceOfIssue"/>
+                </field>
+                <field name="function" position="before">
+                    <field name="DateOfBirth"/>
+                </field>
+                <field name="DateOfBirth" position="after">
+                    <field name="gender"/>
+                </field>
+                <field name="gender" position="after">
+                    <field name="vaccination_cus"/>
+                </field>
+<!-- hide vat field -->
+			<xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide mobile field -->
+			<xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide label of mobile field -->
+            <xpath expr="//label[@for='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide street2 field -->
+         <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+              </xpath>
+<!-- hide street2 field -->
+         <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+              </xpath>
+            </field>
+        </record>
+		<record id="action_customer" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+               Create your first customer
+              </p>
+            </field>
+    	</record>
+    </data>
+</odoo>
+			

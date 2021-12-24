@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+      <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+				<field name="work_email" position="after">
+                    <field name="vaccination"/>
+				</field>
+
+<!-- hide company_id field -->
+			<xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide mobile_phone field -->
+			<xpath expr="//field[@name='mobile_phone']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide category_ids field -->
+			<xpath expr="//field[@name='category_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide country_of_birth field -->
+			<xpath expr="//field[@name='country_of_birth']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+            </field>
+      </record>
+      <record id="action_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+               Create your first teacher
+              </p>
+
+            </field>
+      </record>
+    </data>
+</odoo>

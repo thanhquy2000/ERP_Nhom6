@@ -5,51 +5,66 @@
           <field name="model">product.template</field>
           <field name="inherit_id" ref="product.product_template_form_view" />
           <field name="arch" type="xml">
-
+<!-- add Exam_ID field -->
+			 <xpath expr="//field[@name='type']" position="after">
+                      <field name="Exam_ID"/>
+			 </xpath>
+<!-- add exam_type field -->
+			 <xpath expr="//field[@name='Exam_ID']" position="after">
+                      <field name="exam_type"/>
+			 </xpath>
 <!-- add date_test field -->
-			 <xpath expr="//field[@name='taxes_id']" position="after">
+			 <xpath expr="//field[@name='exam_type']" position="after">
                       <field name="date_test"/>
 			 </xpath>
-
-<!-- add name_teacher field -->
-			 <xpath expr="//field[@name='categ_id']" position="after">
-                      <field name="name_teacher"/>
-              </xpath>
-
+<!-- hide type field -->
+			<xpath expr="//field[@name='type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
+<!-- hide standard_price field -->
+			<xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+       		</xpath>
 <!-- hide standard_price field -->
 			<xpath expr="//field[@name='standard_price']" position="attributes">
                 <attribute name="invisible">1</attribute>
        		</xpath>
-
 <!-- hide label of standard_price field -->
             <xpath expr="//label[@for='standard_price']" position="attributes">
-                <attribute name="invisible">1</attribute> 
+                <attribute name="invisible">1</attribute>
             </xpath>
 <!-- hide company_id field -->
 			<xpath expr="//field[@name='company_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
        		</xpath>
-
 <!-- hide sale_ok field -->
 			<xpath expr="//field[@name='sale_ok']" position="attributes">
                 <attribute name="invisible">1</attribute>
        		</xpath>
-
 <!-- hide label of sale_ok field -->
             <xpath expr="//label[@for='sale_ok']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-
 <!-- hide purchase_ok field -->
 			<xpath expr="//field[@name='purchase_ok']" position="attributes">
                 <attribute name="invisible">1</attribute>
        		</xpath>
-
 <!-- hide label of purchase_ok field -->
             <xpath expr="//label[@for='purchase_ok']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
           </field>
       </record>
+	  <record id="action_exam" model="ir.actions.act_window">
+            <field name="name">Exams</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+               Create your first exam
+              </p>
+            </field>
+    	</record>
     </data>
 </odoo>
