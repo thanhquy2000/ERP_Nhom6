@@ -7,12 +7,7 @@
     'website': "https://group6.com",
     'category': 'Productivity',
     'version': '1.0',
-    'depends': [
-        'sale',
-        'product',
-        'hr',
-        'base', 'mail'
-                ],
+    'depends': ['sale', 'product', 'hr', 'base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/mark.xml',
@@ -20,7 +15,8 @@
         'views/sale.xml',
         'views/hr.xml',
         'views/customer.xml',
-        'report/report.xml',
+        'views/menuitems.xml',
+        'reports/reports.xml',
         ],
     'demo': [],
     'qweb': ['static/src/xml/customer.xml'],

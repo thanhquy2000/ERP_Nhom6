@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="report_customer_certification"
+        string="Certification"
+        model="mark"
+        report_type="qweb-pdf"
+        name="mycentral.report_customer_certification"
+        file="mycentral.report_customer_certification"/>
+
+<template id="report_customer_certification">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="o">
+           <div class="page">
+               <div class="oe_structure"/>
+                   <div class="col-xs-8">
+                           <tr>
+                              <td width="100%">
+                                 <table>
+                                      <tr>
+                                          <td>
+                                             <span>
+                                                 <strong>The Exam Board of members:</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.exam_board"/>
+                                         </td>
+                                     </tr>
+                                     <tr>
+                                          <td>
+                                             <span>
+                                                 <strong>Customer Name::</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.name"/>
+                                         </td>
+                                     </tr>
+                                       <tr>
+                                          <td>
+                                             <span>
+                                                 <strong>Date of Birth:</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.DateOfBirth"/>
+                                         </td>
+                                     </tr>
+                                      <tr>
+                                          <td>
+                                             <span>
+                                                 <strong>ID card:</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.id_card"/>
+                                         </td>
+                                     </tr>
+                                      <tr>
+                                           <td>
+                                             <span>
+                                                 <strong>Exam Name:</strong>
+                                             </span>
+                                      </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.exam_name"/>
+                                         </td>
+                                      </tr>
+                                      <tr>
+                                            <td>
+                                             <span>
+                                                 <strong>Test Date:</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.date_test"/>
+                                         </td>
+                                       </tr>
+
+                                        <tr>
+                                            <td>
+                                             <span>
+                                                 <strong>Total Score:</strong>
+                                             </span>
+                                         </td>
+                                         <td colspan="6" class="text-center">
+                                             <span t-field="o.total_score"/>
+                                         </td>
+                                     </tr>
+
+                               <tr>
+                                   <td>
+                                     <span>
+                                    <strong>Mark of Listening:</strong>
+                                  </span>
+                                </td>
+                               <td colspan="6" class="text-center">
+                                <span t-field="o.mark_listening"/>
+                                </td>
+
+                         </tr>
+                               <tr>
+                                   <td>
+                                     <span>
+                                    <strong>Mark of Reading:</strong>
+                                  </span>
+                                </td>
+                               <td colspan="6" class="text-center">
+                                <span t-field="o.mark_reading"/>
+                                </td>
+                         </tr>
+
+                               <tr>
+                                   <td>
+                                     <span>
+                                    <strong>Mark of Writing:</strong>
+                                  </span>
+                                </td>
+                               <td colspan="6" class="text-center">
+                                <span t-field="o.mark_writing"/>
+                                </td>
+                         </tr>
+
+                               <tr>
+                                   <td>
+                                     <span>
+                                    <strong>ĐMark of Speaking:</strong>
+                                  </span>
+                                </td>
+                               <td colspan="6" class="text-center">
+                                <span t-field="o.mark_speaking"/>
+                                </td>
+                         </tr>
+
+                                 </table>
+                              </td>
+                           </tr>
+                   </div>
+               </div>
+            <br/>
+    </t>
+     </t>
+</template>
+</odoo>
+
